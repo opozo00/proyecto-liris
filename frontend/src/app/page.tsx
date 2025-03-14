@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Onboarding LIRIS 🚀</h1>
+      <h1>Sistema onboard de empleados de <b>LIRIS S.A.</b> 🚀</h1>
       <p>{message}</p>
     </div>
   );

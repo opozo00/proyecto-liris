@@ -9,12 +9,26 @@ const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
+// const User = require("./user");
+// const Role = require("./role");
+// const Manual = require("./manual");
+// const Reading = require("./reading");
+
+
+// // Relaciones
+// Role.hasMany(User, { foreignKey: "roleId" });
+// User.belongsTo(Role, { foreignKey: "roleId" });
+
+// User.belongsToMany(Manual, { through: Reading, foreignKey: "userId" });
+// Manual.belongsToMany(User, { through: Reading, foreignKey: "manualId" });
+
 let sequelize;
-if (config.use_env_variable) {
+if (config.use_env_variable && process.env[config.use_env_variable]) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
+
 
 fs
   .readdirSync(__dirname)
